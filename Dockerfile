@@ -6,7 +6,7 @@ WORKDIR /var/www
 
 COPY . .
 
-# RUN composer install --no-interaction
+RUN composer install --no-interaction
 
 EXPOSE 9000
 

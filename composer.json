@@ -1,14 +1,42 @@
 {
-    "name": "root/www",
-    "autoload": {
-        "psr-4": {
-            "Root\\Www\\": "src/"
-        }
-    },
+    "name": "kernelfolla/exercise-php-whois-query-service",
+    "description": "A PHP-based WHOIS query service for .com domains, built as an exercise using Slim Framework and DDD Hexagonal Architecture. Includes a RESTful API, Docker support, and unit/integration tests.",
+    "type": "project",
     "authors": [
         {
-            "name": "x"
+            "name": "Marino Di Clemente",
+            "email": "kernelfolla@gmail.com"
         }
     ],
-    "require": {}
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "slim/slim": "^4.14.0",
+        "slim/psr7": "^1.7.0"
+    },
+    "require-dev": {
+        "jangregor/phpstan-prophecy": "^2.0.0",
+        "phpspec/prophecy-phpunit": "^v2.3.0",
+        "phpstan/extension-installer": "^1.4.3",
+        "phpstan/phpstan": "^2.1.2",
+        "phpunit/phpunit": "^11.5.3",
+        "squizlabs/php_codesniffer": "^3.11.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        },
+        "process-timeout": 0,
+        "sort-packages": true
+    }
 }

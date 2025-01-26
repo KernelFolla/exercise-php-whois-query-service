@@ -58,6 +58,21 @@ You can also pass additional parameters to Composer commands. For example:
 make composer install --no-dev
 ```
 
+### Running PHPStan
+
+To run PHPStan for static analysis, use:
+```bash
+make phpstan
+```
+
+### Running PHPStan
+
+To run PHP CodeSniffer for code style checks, use:
+```bash
+make phpcs
+```
+
+
 ## Contributing
 
 This is an exercise, so contributions are not expected. However, feedback and suggestions are welcome!

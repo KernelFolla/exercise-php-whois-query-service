@@ -20,5 +20,11 @@ test:
 composer:
 	docker-compose run --rm app composer $(filter-out $@,$(MAKECMDGOALS))
 
+phpstan:
+	docker-compose run --rm app vendor/bin/phpstan analyse src tests
+
+phpcs:
+	docker-compose run --rm app vendor/bin/phpcs src tests
+
 %:
 	@:
