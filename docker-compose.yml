@@ -3,6 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - DEBUG=${DEBUG:-false}
+      - WHOIS_SERVER=${WHOIS_SERVER:-whois.verisign-grs.com}
+      - WHOIS_PORT=${WHOIS_PORT:-43}
+      - WHOIS_TIMEOUT=${WHOIS_TIMEOUT:-10}
     volumes:
       - .:/var/www
     networks:

@@ -17,6 +17,9 @@ stop:
 test:
 	docker-compose run --rm app vendor/bin/phpunit
 
+shell:
+	docker-compose run --rm app sh
+
 composer:
 	docker-compose run --rm app composer $(filter-out $@,$(MAKECMDGOALS))
 
@@ -25,6 +28,9 @@ phpstan:
 
 phpcs:
 	docker-compose run --rm app vendor/bin/phpcs src tests
+
+phpcs-fix:
+	docker-compose run --rm app vendor/bin/phpcbf src tests
 
 %:
 	@:

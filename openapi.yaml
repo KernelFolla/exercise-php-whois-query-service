@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: WHOIS Query Service
+  description: A service to perform WHOIS queries for `.com` domains.
+  version: 1.0.0
+  contact:
+    name: Marino Di Clemente
+    url: https://github.com/KernelFolla
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+paths:
+  /whois/{domain}:
+    get:
+      summary: Perform a WHOIS query
+      description: Returns WHOIS information for a given `.com` domain.
+      parameters:
+        - name: domain
+          in: path
+          required: true
+          description: The domain name to query.
+          schema:
+            type: string
+            example: example.com
+      responses:
+        '200':
+          description: Successful WHOIS query
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  raw_data:
+                    type: string
+                    description: The raw WHOIS response data.
+                  domain_status:
+                    type: array
+                    items:
+                      type: string
+                    description: The status of the domain.
+                  name_servers:
+                    type: array
+                    items:
+                      type: string
+                    description: The name servers for the domain.
+                  dates:
+                    type: object
+                    properties:
+                      created:
+                        type: string
+                        format: date-time
+                        description: The creation date of the domain.
+                      expires:
+                        type: string
+                        format: date-time
+                        description: The expiry date of the domain.
+                  registrar:
+                    type: string
+                    description: The registrar of the domain.
+        '400':
+          description: Invalid domain name or non-`.com` domain
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
