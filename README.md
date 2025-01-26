@@ -32,6 +32,32 @@ This is an exercise to implement a PHP-based WHOIS query service for `.com` doma
    cd whois-query-service-exercise
    ```
 
+## Usage
+
+### Starting the Service
+
+```bash
+make start
+```
+
+### Stopping the Service
+
+```bash
+make stop
+```
+
+### Using Composer
+
+You can run Composer commands using the `make` command. For example, to install dependencies, run:
+```bash
+make composer install
+```
+
+You can also pass additional parameters to Composer commands. For example:
+```bash
+make composer install --no-dev
+```
+
 ## Contributing
 
 This is an exercise, so contributions are not expected. However, feedback and suggestions are welcome!
